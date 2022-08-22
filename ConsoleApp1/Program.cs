@@ -1,4 +1,6 @@
-﻿using ConsoleApp1.RunTest;
+﻿using ConsoleApp1.DesignPattern;
+using ConsoleApp1.RunTest;
+using OpenQA.Selenium;
 
 namespace ConsoleApp1
 {
@@ -6,8 +8,10 @@ namespace ConsoleApp1
     {
         static void Main()
         {
+            IWebDriver driver = null;
+            LoginPage loginPage = new(driver, 200);
             Triangle t = new Triangle();
-            t.TriangleTest(new Circle().MyProperty);
+            t.TriangleTest(new Circle().MyProperty, loginPage);
             Console.WriteLine();
         }
     }
